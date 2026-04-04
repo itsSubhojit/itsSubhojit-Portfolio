@@ -10,14 +10,14 @@ function Hero() {
       <div className="order-2 md:order-1 flex flex-col justify-center text-center md:text-left max-w-xl" >
 
         <div className='flex flex-wrap gap-4 items-center'>
-          <h2 className="text-2xl sm:text-3xl font-serif text-gray-700">
+          <h2 className="dark:text-white not-first-of-type:text-2xl sm:text-3xl font-serif text-gray-700">
           Hi, I'm </h2> 
           <h1 className='text-3xl sm:text-5xl md:text-6xl font-serif font-bold bg-gradient-to-r from-indigo-600 to-violet-700 bg-clip-text text-transparent'>
               Subhojit
            </h1>
         </div>
 
-        <p className="mt-4 text-gray-600 text-justify font-semibold font-mono">
+        <p className="dark:text-white mt-4 text-gray-600 text-justify font-semibold font-mono">
           A Full Stack Developer focused on building modern and responsive web applications, while continuously improving my skills through hands-on projects and real-world learning experiences.
         </p>
 
@@ -26,8 +26,12 @@ function Hero() {
            <Link to="/Projects"> View Projects → </Link>
           </button>
 
-          <button className="border border-black px-6 py-2 rounded-lg text-black">
-            Contact Me..
+          <button className="dark:text-white dark:border-white border border-black px-6 py-2 rounded-lg text-black">
+           <Link to="https://github.com/itsSubhojit" target='blank'>
+           <span className='flex items-center gap-1.5 '> 
+            <img src="/Github-Dark.svg" className="w-12 h-12" />
+            ➚ </span>
+          </Link>
           </button>
         </div>
       </div>
@@ -35,7 +39,7 @@ function Hero() {
       {/* Right Image */}
       <div className="order-1 md:order-2 flex justify-center ">
         <img 
-          className='rounded-full w-40 h-40 md:w-60 md:h-60 object-cover' 
+          className='rounded-full w-40 h-40 md:w-96 md:h-96 object-cover' 
           src="/my-pic.jpg" 
           alt="my-pic" 
         />
