@@ -28,6 +28,7 @@ function Skills() {
           <img src="/Git.svg" className="w-12 h-12" />
           <img src="/Github-Dark.svg" className="w-12 h-12" />
           <img src="/Postman.svg" className="w-12 h-12" />
+          <img src="/Netlify-Dark.svg" className="w-12 h-12" />
           <img src="/MySQL-Dark.svg" className="w-12 h-12" />
 
         </div>
