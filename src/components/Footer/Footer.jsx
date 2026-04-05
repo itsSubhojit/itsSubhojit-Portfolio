@@ -1,6 +1,9 @@
 import React from 'react'
 
 function Footer() {
+
+  const updateYear = new Date().getFullYear()
+
   return (
     <div className='mt-20 flex flex-col items-center'>
 
@@ -13,7 +16,7 @@ function Footer() {
                       border-t border-white/20 mt-6'>
 
         <h1 className='text-gray-700 text-sm md:text-base font-m text-center dark:text-white'>
-          © 2026 Subhojit Chakraborty. All Rights Reserved.
+          © {updateYear} Subhojit Chakraborty. All Rights Reserved.
         </h1>
 
       </div>

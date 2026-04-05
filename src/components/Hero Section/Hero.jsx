@@ -18,7 +18,7 @@ function Hero() {
         </div>
 
         <p className="dark:text-white mt-4 text-gray-600 text-justify font-semibold font-mono">
-          A Full Stack Developer focused on building modern and responsive web applications, while continuously improving my skills through hands-on projects and real-world learning experiences.
+          I’m an aspiring <span className='text-xl bg-gradient-to-r from-cyan-500 to-violet-700 bg-clip-text text-transparent'> full stack developer </span> building modern web applications, strengthening my skills through hands-on projects and real-world experience.
         </p>
 
         <div className="mt-6 flex gap-4 justify-center md:justify-start">
@@ -27,11 +27,11 @@ function Hero() {
           </button>
 
           <button className="dark:text-white dark:border-white border border-black px-6 py-2 rounded-lg text-black">
-           <Link to="https://github.com/itsSubhojit" target='blank'>
+           <a href="https://github.com/itsSubhojit" target='_blank' rel="noopener noreferrer">
            <span className='flex items-center gap-1.5 '> 
             <img src="/Github-Dark.svg" className="w-12 h-12" />
             ➚ </span>
-          </Link>
+          </a>
           </button>
         </div>
       </div>
