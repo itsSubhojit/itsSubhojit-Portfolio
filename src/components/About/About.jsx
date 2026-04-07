@@ -23,7 +23,7 @@ function About() {
 
             <p className='dark:text-white text-base md:text-lg text-gray-700 font-semibold font-mono
                           text-center md:text-left leading-relaxed'>
-                I’m Subhojit Chakraborty, a BCA student from TMSL College and an aspiring full stack developer focused on building modern, responsive web applications using React and Tailwind CSS. I continuously improve my skills through hands-on projects, aiming to create clean, efficient, and user-friendly digital experiences while strengthening my problem-solving abilities and understanding of web development.
+                I’m Subhojit Chakraborty, a BCA student from Techno Main SaltLake College and an aspiring full stack developer focused on building modern, responsive web applications using React and Tailwind CSS. I continuously improve my skills through hands-on projects, aiming to create clean, efficient, and user-friendly digital experiences while strengthening my problem-solving abilities and understanding of web development.
             </p>
 
         </div>

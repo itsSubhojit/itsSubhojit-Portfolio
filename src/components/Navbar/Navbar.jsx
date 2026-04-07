@@ -29,13 +29,27 @@ function Navbar() {
     <div className='fixed top-0 left-0 right-0 z-50 flex justify-center'>
       
   {/* Navbar container */}
-  <div className='w-full max-w-5xl rounded-full backdrop-blur-md bg-blue-400/20 border border-b-blue-700 m-2 sm:m-3 md:m-4 
+  <div className='w-full max-w-3xl rounded-full backdrop-blur-sm bg-blue-400/20  m-2 sm:m-3 md:m-4 
                   flex items-center justify-between p-3 sm:p-4 shadow-lg'>
     
     {/* Logo */}
-    <div>
-      <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r glow-text">
-        S
+    <div className='gap-4 flex flex-row'>
+        <div className='w-8 h-8'> {/* Size ko balance karein */}
+             <NavLink to="/">
+  {({ isActive }) => (
+    <img 
+      src="/my-pic.jpg"
+      className={`w-8 h-8 rounded-full transition 
+        ${isActive ? "ring-2 ring-rose-500" : ""}`}
+      alt="logo"
+    />
+  )}
+</NavLink>
+        </div>
+
+
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-700 bg-clip-text text-transparent glow-text font-mono">
+        <span className='text-violet-600'>p</span>ortfolio
       </h1>
     </div>
 
@@ -111,7 +125,7 @@ function Navbar() {
 
      {/* Dark mode UI */}
      <div className='mt-7 md:mt-10 mr-4 flex items-center w-8 h-4 rounded-full bg-gray-900 '> 
-       <button className="cursor-pointer p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30"
+       <button className="cursor-pointer p-2 rounded-full bg-white/50 backdrop-blur-md border border-white/30"
 
        onClick={()=> setTheme(!theme)}
        >
