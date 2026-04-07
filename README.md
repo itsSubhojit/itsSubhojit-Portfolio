@@ -72,24 +72,7 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 │
 ├── package.json
 └── README.md
-src/
-│
-├── components/
-│   ├── Navbar/
-│   ├── Footer/
-│   ├── Layout/
-│   ├── Home/
-│   ├── About/
-│   ├── Skills/
-│   ├── Projects/
-│   └── Contact/
-│
-├── ProjectsData/
-│   └── ProjectsData.js
-│
-├── App.jsx
-├── main.jsx
-└── index.css
+
 ```
 
 ---
