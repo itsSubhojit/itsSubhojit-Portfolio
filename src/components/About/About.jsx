@@ -1,7 +1,9 @@
 import React from 'react'
+import Footer from '../Footer/Footer'
 
 function About() {
   return (
+ 
     <div className='pt-10 mt-16 md:mt-24 px-6 md:px-20 flex flex-col items-center'>
         
         {/* Heading */}
@@ -25,7 +27,6 @@ function About() {
             </p>
 
         </div>
-
     </div>
 
   )

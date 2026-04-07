@@ -3,7 +3,7 @@ import projectsData from '../ProjectsData/ProjectsData'
 
 function Projects() {
   return (
-    <div className='mt-32 mb-20 flex flex-col items-center px-6'>
+    <div className='mt-24 mb-20 flex flex-col items-center px-6'>
 
       {/* Heading */}
       <div className='flex flex-col items-center'>

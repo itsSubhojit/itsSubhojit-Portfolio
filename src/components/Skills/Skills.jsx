@@ -2,7 +2,7 @@ import React from 'react'
 
 function Skills() {
   return (
-    <div className='px-6 mt-32 md:mt-40 flex flex-col  items-center'>
+    <div className='px-6 mt-32 md:mt-40 flex flex-col items-center'>
 
         {/* Heading */}
         <div className='flex flex-col items-center'>

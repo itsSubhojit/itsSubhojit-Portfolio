@@ -10,6 +10,7 @@
 /* Smooth background transitions */
 @layer base {
   body {
+    @apply bg-white dark:bg-gray-950;
     @apply transition-colors duration-300;
   }
 }
