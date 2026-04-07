@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 
 ## 🚀 Live Demo
 
-🔗 [https://your-portfolio-link.netlify.app]
+🔗 (https://csubhojit.netlify.app/)
 
 ---
 
