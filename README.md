@@ -49,7 +49,7 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 │   ├── MySQL-Dark.svg
 │   ├── my-pic.jpg
 │   ├── icons8-hamburger-menu.svg
-│   └── (other images & assets)
+│   └── (other images)
 │
 ├── src/
 │   ├── components/
@@ -80,10 +80,12 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 ## ⚙️ Installation & Setup
 
 ```bash
-git clone https://github.com/itsSubhojit/your-repo-name.git
+git clone https://github.com/itsSubhojit/itsSubhojit-Portfolio.git
 cd your-repo-name
 npm install
 npm run dev
+
+Tailwind CSS v4 is already configured in this project.
 ```
 
 ---
