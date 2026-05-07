@@ -26,7 +26,7 @@ const projectsData = [
   {
     id:4,
     title: "Notes App",
-    desc: "Created a Notes App using Vite, React, and Tailwind CSS.",
+    desc: "Created a Notes App using Vite + React and Tailwind CSS.",
     img: "/Notes App pic.png",
     code: "https://github.com/itsSubhojit/React-Mini-Practise-Projects/tree/main/Notes%20App",
     live: null
