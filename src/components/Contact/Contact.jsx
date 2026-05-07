@@ -58,11 +58,17 @@ function Contact() {
           name="contact" 
           method="POST" 
           data-netlify="true" 
+          netlify-honeypot="bot-field"
           onSubmit={handleSubmit} 
           className='flex flex-col gap-5'
         >
           {/* Required by Netlify for AJAX submissions */}
           <input type="hidden" name="form-name" value="contact" />
+          
+          {/* Honeypot field for spam protection */}
+          <p className="hidden">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" onChange={handleChange} /></label>
+          </p>
 
           {/* First Name */}
           <div className='flex flex-col'>
