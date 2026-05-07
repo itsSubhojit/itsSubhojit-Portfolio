@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 function Contact() {
   const [formData, setFormData] = useState({
+    'form-name': 'contact',
+    'bot-field': '',
     first_name: '',
     last_name: '',
     email: '',
@@ -23,7 +25,7 @@ function Contact() {
     }).toString()
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
