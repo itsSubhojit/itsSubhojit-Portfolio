@@ -115,7 +115,6 @@ function Contact() {
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
-              required
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -152,7 +151,6 @@ function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -171,7 +169,6 @@ function Contact() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              required
               maxLength={500}
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
