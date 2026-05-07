@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 function Contact() {
   const [formData, setFormData] = useState({
-    'form-name': 'contact',
-    'bot-field': '',
     first_name: '',
     last_name: '',
     email: '',
@@ -21,11 +19,12 @@ function Contact() {
 
     const body = new URLSearchParams({
       'form-name': 'contact',
+      'bot-field': formData['bot-field'] || '',
       ...formData,
     }).toString()
 
     try {
-      const response = await fetch(window.location.pathname, {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
@@ -56,17 +55,17 @@ function Contact() {
         </h1>
 
         {/* Form */}
-        <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true" 
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
           netlify-honeypot="bot-field"
-          onSubmit={handleSubmit} 
+          onSubmit={handleSubmit}
           className='flex flex-col gap-5'
         >
           {/* Required by Netlify for AJAX submissions */}
           <input type="hidden" name="form-name" value="contact" />
-          
+
           {/* Honeypot field for spam protection */}
           <p className="hidden">
             <label>Don’t fill this out if you’re human: <input name="bot-field" onChange={handleChange} /></label>
@@ -77,7 +76,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               First Name
             </label>
-            <input 
+            <input
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
@@ -96,7 +95,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Last Name
             </label>
-            <input 
+            <input
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
@@ -114,7 +113,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Email
             </label>
-            <input 
+            <input
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -133,7 +132,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Message
             </label>
-            <textarea 
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -159,7 +158,7 @@ function Contact() {
           )}
 
           {/* Button */}
-          <button 
+          <button
             type="submit"
             disabled={status === 'sending'}
             className='mt-2 w-full py-2 rounded-md 
