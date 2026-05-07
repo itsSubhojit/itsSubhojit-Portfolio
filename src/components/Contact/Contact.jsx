@@ -9,6 +9,10 @@ function Contact() {
     'bot-field': ''
   })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState('')
+  const [lastSubmit, setLastSubmit] = useState(0)
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -16,6 +20,35 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (!formData.first_name.trim()) {
+      setStatus('error')
+      setErrorMsg("First name is required")
+      return
+    }
+    if (!formData.email || !isValidEmail(formData.email)) {
+      setStatus('error')
+      setErrorMsg("Please enter a valid email")
+      return
+    }
+    if (!formData.message.trim()) {
+      setStatus('error')
+      setErrorMsg("Message cannot be empty")
+      return
+    }
+    if (formData.message.length > 500) {
+      setStatus('error')
+      setErrorMsg("Message too long (max 500 characters)")
+      return
+    }
+    if (Date.now() - lastSubmit < 30000) {
+      setStatus('error')
+      setErrorMsg("Please wait 30 seconds before sending again")
+      return
+    }
+
+    setLastSubmit(Date.now())
+    setErrorMsg('')
     setStatus('sending')
 
     // This part is the MOST important — it must include the bot-field!
@@ -57,17 +90,17 @@ function Contact() {
         </h1>
 
         {/* Form */}
-        <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true" 
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
           netlify-honeypot="bot-field"
-          onSubmit={handleSubmit} 
+          onSubmit={handleSubmit}
           className='flex flex-col gap-5'
         >
           {/* Required by Netlify for AJAX submissions */}
           <input type="hidden" name="form-name" value="contact" />
-          
+
           {/* Honeypot field for spam protection */}
           <p className="hidden">
             <label>Don’t fill this out if you’re human: <input name="bot-field" onChange={handleChange} /></label>
@@ -78,7 +111,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               First Name
             </label>
-            <input 
+            <input
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
@@ -97,7 +130,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Last Name
             </label>
-            <input 
+            <input
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
@@ -115,7 +148,7 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Email
             </label>
-            <input 
+            <input
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -134,11 +167,12 @@ function Contact() {
             <label className='dark:text-white text-sm text-gray-600 font-semibold'>
               Message
             </label>
-            <textarea 
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
+              maxLength={500}
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -155,12 +189,12 @@ function Contact() {
           )}
           {status === 'error' && (
             <p className='text-red-500 text-center font-semibold'>
-              ❌ Something went wrong. Please try again.
+              ❌ {errorMsg || 'Something went wrong. Please try again.'}
             </p>
           )}
 
           {/* Button */}
-          <button 
+          <button
             type="submit"
             disabled={status === 'sending'}
             className='mt-2 w-full py-2 rounded-md 
