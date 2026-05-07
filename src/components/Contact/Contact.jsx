@@ -1,6 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    message: '',
+  })
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      ...formData,
+    }).toString()
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ first_name: '', last_name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (err) {
+      setStatus('error')
+    }
+  }
+
   return (
     <div className='mt-32 mb-12 flex justify-center px-6'>
 
@@ -15,7 +54,15 @@ function Contact() {
         </h1>
 
         {/* Form */}
-        <div className='flex flex-col gap-5'>
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true" 
+          onSubmit={handleSubmit} 
+          className='flex flex-col gap-5'
+        >
+          {/* Required by Netlify for AJAX submissions */}
+          <input type="hidden" name="form-name" value="contact" />
 
           {/* First Name */}
           <div className='flex flex-col'>
@@ -23,6 +70,10 @@ function Contact() {
               First Name
             </label>
             <input 
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange}
+              required
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -38,6 +89,9 @@ function Contact() {
               Last Name
             </label>
             <input 
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -53,6 +107,10 @@ function Contact() {
               Email
             </label>
             <input 
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -68,6 +126,10 @@ function Contact() {
               Message
             </label>
             <textarea 
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
               className='mt-1 px-3 py-2 rounded-md 
                          bg-white/40 border border-gray-300
                          focus:outline-none focus:ring-2 focus:ring-indigo-400
@@ -76,15 +138,30 @@ function Contact() {
             />
           </div>
 
+          {/* Status Messages */}
+          {status === 'success' && (
+            <p className='text-green-500 text-center font-semibold'>
+              ✅ Message sent successfully!
+            </p>
+          )}
+          {status === 'error' && (
+            <p className='text-red-500 text-center font-semibold'>
+              ❌ Something went wrong. Please try again.
+            </p>
+          )}
+
           {/* Button */}
           <button 
+            type="submit"
+            disabled={status === 'sending'}
             className='mt-2 w-full py-2 rounded-md 
                        bg-indigo-600 text-white text-xl font-mono font-bold 
-                       hover:bg-indigo-500 transition duration-200'>
-            Submit
+                       hover:bg-indigo-500 transition duration-200
+                       disabled:opacity-50'>
+            {status === 'sending' ? 'Sending...' : 'Submit'}
           </button>
 
-        </div>
+        </form>
 
       </div>
     </div>
