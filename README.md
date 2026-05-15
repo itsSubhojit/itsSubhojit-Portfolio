@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 
 ## 🚀 Live Demo
 
-🔗 (https://csubhojit.netlify.app/)
+🔗 [csubhojit.netlify.app](https://csubhojit.netlify.app/)
 
 ---
 
@@ -16,6 +16,8 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 * 🌙 Dark mode with persistent theme (localStorage)
 * 🧭 Navigation using React Router
 * 🎨 Modern UI with glassmorphism effects
+* 📬 Contact Form powered by **Netlify** with real-time validation & AJAX submission
+* 🛸 Floating Glassmorphism Footer with blinking status indicator
 * 📁 Dynamic project rendering from data file
 * 🔗 Secure external links (`rel="noopener noreferrer"`)
 
@@ -23,13 +25,10 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 
 ## 🛠️ Tech Stack
 
-## 🛠️ Tech Stack
-
 * **Frontend:** React.js (Vite)
-* **Build Tool:** Vite
-* **Styling:** Tailwind CSS
+* **Styling:** Tailwind CSS (v4)
 * **Routing:** React Router DOM
-* **Deployment:** Netlify
+* **Forms & Deployment:** Netlify (Netlify Forms)
 * **Version Control:** Git & GitHub
 ---
 
@@ -81,19 +80,18 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 
 ```bash
 git clone https://github.com/itsSubhojit/itsSubhojit-Portfolio.git
-cd your-repo-name
+cd itsSubhojit-Portfolio
 npm install
 npm run dev
-
-Tailwind CSS v4 is already configured in this project.
 ```
+
+> **Note:** Tailwind CSS v4 is already configured in this project.
 
 ---
 
 ## 📌 Future Improvements
 
-* 🔄 Add animations
-* 📬 Add email functionality for contact form
+* 🔄 Add smooth scroll animations and framer-motion transitions
 
 ---
 
