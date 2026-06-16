@@ -38,7 +38,7 @@ function Navbar() {
              <NavLink to="/">
   {({ isActive }) => (
     <img 
-      src="/my-pic.jpg"
+      src="/my-pic.png"
       className={`w-8 h-8 rounded-full transition 
         ${isActive ? "ring-2 ring-rose-500" : ""}`}
       alt="logo"

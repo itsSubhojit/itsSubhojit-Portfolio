@@ -40,7 +40,7 @@ function Hero() {
       <div className="order-1 md:order-2 flex justify-center ">
         <img 
           className='rounded-full w-40 h-40 md:w-96 md:h-96 object-cover' 
-          src="/my-pic.jpg" 
+          src="/my-pic.png" 
           alt="my-pic" 
         />
       </div>
