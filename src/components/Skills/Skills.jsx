@@ -30,6 +30,8 @@ function Skills() {
           <img src="/Postman.svg" className="w-12 h-12" />
           <img src="/Netlify-Dark.svg" className="w-12 h-12" />
           <img src="/MySQL-Dark.svg" className="w-12 h-12" />
+          <img src="/NodeJS-Dark.svg" className="w-12 h-12" />
+          <img src="/ExpressJS-Dark.svg" className="w-12 h-12" />
 
         </div>
 
