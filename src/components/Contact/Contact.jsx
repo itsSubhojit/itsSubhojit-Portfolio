@@ -118,7 +118,7 @@ function Contact() {
         setStatus('error')
         setErrors({ general: "Submission failed. Please try again." })
       }
-    } catch (err) {
+    } catch {
       setStatus('error')
       setErrors({ general: "Something went wrong. Please try again." })
     }

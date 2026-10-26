@@ -10,7 +10,7 @@ import Layout from "./components/Layout/Layout";
 function App() {
   return (
     <>
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-black dark:text-white transition-colors duration-500">
+    <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] font-sans transition-colors duration-300">
 
     <Routes>
       <Route path="/" element={<Layout/>}>

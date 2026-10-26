@@ -1,23 +1,27 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 function Layout() {
+  const { pathname } = useLocation()
+
+  // Scroll to top on route navigation
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
+
   return (
-    <>
-    {/* flex-col aur min-h-screen poore page ka structure handle karega */}
     <div className="flex flex-col min-h-screen">
-      <Header/>
-      
-      {/* flex-grow bachi hui space occupy karega, footer ko niche push karne ke liye */}
-      <main className="flex-grow pt-20">
-          <Outlet/>
+      <Header />
+
+      {/* Main container with spacing for floating navbar */}
+      <main className="flex-grow pt-24 sm:pt-28 md:pt-32">
+        <Outlet />
       </main>
-      
-      <Footer/>
+
+      <Footer />
     </div>
-    </>
   )
 }
 

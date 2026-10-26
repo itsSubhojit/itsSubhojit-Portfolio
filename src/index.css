@@ -4,13 +4,87 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-canvas-dark: #0e0e0f;
+  --color-canvas-bone: #edeae3;
+  --color-surface-dark: rgba(37, 37, 38, 0.72);
+  --color-surface-bone: rgba(245, 242, 235, 0.77);
+  --color-border-dark: #353432;
+  --color-border-bone: #cac6bd;
+  --color-text-dark: #edeae3;
+  --color-text-bone: #0e0e0f;
+  --color-muted-dark: #8a877f;
+  --color-muted-bone: #68655f;
+  --color-accent: #ff5a1f;
+  --color-status-green: #83aa78;
+  --color-note-dark: #19191a;
+  --color-note-bone: #e1ded6;
 }
 
-/* Smooth background transitions */
-@layer base {
-  body {
-    @apply bg-white dark:bg-gray-950;
-    @apply transition-colors duration-300;
+:root {
+  --bg-canvas: #edeae3;
+  --text-primary: #0e0e0f;
+  --text-muted: #68655f;
+  --border-color: #cac6bd;
+  --surface-glass: rgba(245, 242, 235, 0.77);
+  --surface-glass-border: #cac6bd;
+  --accent: #ff5a1f;
+  --status-dot: #83aa78;
+  --note-bg: #e1ded6;
+}
+
+.dark {
+  --bg-canvas: #0e0e0f;
+  --text-primary: #edeae3;
+  --text-muted: #8a877f;
+  --border-color: #353432;
+  --surface-glass: rgba(37, 37, 38, 0.72);
+  --surface-glass-border: #353432;
+  --accent: #ff5a1f;
+  --status-dot: #83aa78;
+  --note-bg: #19191a;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility glass-panel {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid var(--border-color);
+}
+
+@utility hairline-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
