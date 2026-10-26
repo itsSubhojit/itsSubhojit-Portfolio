@@ -5,14 +5,14 @@ const skillGroups = [
   {
     title: 'Languages',
     skills: [
-      { name: 'Java', icon: null },
       { name: 'JavaScript', icon: '/JavaScript.svg' },
     ],
   },
   {
     title: 'Frontend',
     skills: [
-      { name: 'HTML / CSS', icon: '/HTML.svg' },
+      { name: 'HTML', icon: '/HTML.svg' },
+      { name: 'CSS', icon: '/CSS.svg' },
       { name: 'React', icon: '/React-Dark.svg' },
       { name: 'Tailwind CSS', icon: '/TailwindCSS-Dark.svg' },
     ],
@@ -22,7 +22,7 @@ const skillGroups = [
     skills: [
       { name: 'Node.js', icon: '/NodeJS-Dark.svg' },
       { name: 'Express', icon: '/ExpressJS-Dark.svg' },
-      { name: 'SQL / MySQL', icon: '/MySQL-Dark.svg' },
+      { name: 'MySQL', icon: '/MySQL-Dark.svg' },
     ],
   },
   {

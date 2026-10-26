@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { motion as Motion, useReducedMotion } from 'framer-motion'
+import { motion as Motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 
 const navLinks = [
   { name: 'Home', path: '/', end: true },
@@ -12,6 +12,8 @@ const navLinks = [
 
 function Navbar() {
   const shouldReduceMotion = useReducedMotion()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const mobileNavRef = useRef(null)
 
   // 1. Initial state localStorage se check karein (strictly preserved)
   const [theme, setTheme] = useState(() => {
@@ -29,6 +31,24 @@ function Navbar() {
     }
   }, [theme])
 
+  // Close mobile menu on click outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (mobileNavRef.current && !mobileNavRef.current.contains(event.target)) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('touchstart', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [mobileMenuOpen])
+
   return (
     <Motion.header
       initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
@@ -38,9 +58,10 @@ function Navbar() {
     >
       {/* Floating navigation capsule */}
       <div
-        className="pointer-events-auto w-full max-w-[1296px] glass-panel
-                   rounded-[25px] md:rounded-full
-                   px-5 py-3.5 sm:px-7 sm:py-4
+        ref={mobileNavRef}
+        className="relative pointer-events-auto w-full max-w-[1296px] glass-panel
+                   rounded-full
+                   px-5 py-3 sm:px-7 sm:py-4
                    shadow-[0_8px_32px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.35)]
                    transition-colors duration-200"
       >
@@ -97,7 +118,6 @@ function Navbar() {
             </span>
             <div className="w-[17px] height-[17px] flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
               {theme ? (
-                // Sun SVG for switching to Light
                 <svg
                   width="17"
                   height="17"
@@ -115,7 +135,6 @@ function Navbar() {
                   />
                 </svg>
               ) : (
-                // Moon SVG for switching to Dark
                 <svg
                   width="17"
                   height="17"
@@ -137,22 +156,24 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Layout (< md) matching Figma #4:2877 */}
-        <div className="flex md:hidden flex-col gap-3">
-          {/* Top Row: Brand & Theme Toggle */}
-          <div className="flex items-center justify-between">
-            <Link
-              to="/"
-              className="text-[13px] font-medium font-sans text-[var(--text-primary)] tracking-tight"
-            >
-              Subhojit Chakraborty
-            </Link>
+        {/* Mobile Layout (< md): Brand on Left, Theme Toggle & Animated Hamburger on Far Right */}
+        <div className="flex md:hidden items-center justify-between">
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[13px] font-medium font-sans text-[var(--text-primary)] tracking-tight truncate pr-2"
+          >
+            Subhojit Chakraborty
+          </Link>
 
+          {/* Far Right Action Controls */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme((prev) => !prev)}
               type="button"
               aria-label={theme ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="flex items-center gap-1.5 cursor-pointer text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors p-1"
+              className="flex items-center gap-1.5 cursor-pointer text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors p-1.5"
             >
               <span className="font-mono text-[9px] tracking-wider uppercase">
                 {theme ? 'DARK' : 'LIGHT'}
@@ -195,39 +216,106 @@ function Navbar() {
                 )}
               </div>
             </button>
-          </div>
 
-          {/* Bottom Row: Page Links */}
-          <nav className="flex items-center justify-between border-t border-[var(--border-color)] pt-2.5" aria-label="Mobile Navigation">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                end={link.end}
-                className={({ isActive }) =>
-                  `relative text-[12px] font-sans transition-colors duration-150 py-0.5 ${
-                    isActive
-                      ? 'text-[var(--text-primary)] font-medium'
-                      : 'text-[var(--text-muted)]'
-                  }`
+            {/* "Fries Right" Three-Line Bar with Crossing (X) Morph Animation */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              className="w-8 h-8 flex flex-col justify-center items-end gap-[4.5px] cursor-pointer text-[var(--text-primary)] p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus:outline-none"
+            >
+              {/* Top Line (Full Width) */}
+              <Motion.span
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : mobileMenuOpen
+                    ? { rotate: 45, y: 6.5 }
+                    : { rotate: 0, y: 0 }
                 }
-              >
-                {({ isActive }) => (
-                  <>
-                    <span>{link.name}</span>
-                    {isActive && (
-                      <Motion.div
-                        layoutId={shouldReduceMotion ? undefined : 'mobile-nav-active'}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[var(--accent)]"
-                        transition={{ duration: 0.2, ease: 'easeOut' }}
-                      />
-                    )}
-                  </>
-                )}
-              </NavLink>
-            ))}
-          </nav>
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="w-[18px] h-[2px] bg-current rounded-full origin-center"
+              />
+              {/* Middle Line ("Fries Right": Shorter and Right-Aligned) */}
+              <Motion.span
+                animate={
+                  shouldReduceMotion
+                    ? { opacity: mobileMenuOpen ? 0 : 1 }
+                    : mobileMenuOpen
+                    ? { opacity: 0, scaleX: 0, x: 4 }
+                    : { opacity: 1, scaleX: 1, x: 0 }
+                }
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+                className="w-[11px] h-[2px] bg-current rounded-full origin-right"
+              />
+              {/* Bottom Line (Full Width) */}
+              <Motion.span
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : mobileMenuOpen
+                    ? { rotate: -45, y: -6.5 }
+                    : { rotate: 0, y: 0 }
+                }
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="w-[18px] h-[2px] bg-current rounded-full origin-center"
+              />
+            </button>
+          </div>
         </div>
+
+        {/* Floating Far-Right Mobile Menu Dropdown Card */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <Motion.div
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: -8 }
+              }
+              animate={
+                shouldReduceMotion
+                  ? { opacity: 1 }
+                  : { opacity: 1, scale: 1, y: 0 }
+              }
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: -8 }
+              }
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden absolute top-[calc(100%+10px)] right-0 w-52 sm:w-56 bg-[#edeae3] dark:bg-[#161617] border border-[var(--border-color)] rounded-2xl p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.18)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.8)] flex flex-col gap-1 z-50 overflow-hidden"
+            >
+              <nav className="flex flex-col gap-0.5" aria-label="Mobile Navigation">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    end={link.end}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[13px] font-sans transition-colors ${
+                        isActive
+                          ? 'bg-[var(--accent)]/10 text-[var(--accent)] font-medium'
+                          : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/5'
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        <span>{link.name}</span>
+                        {isActive && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                        )}
+                      </>
+                    )}
+                  </NavLink>
+                ))}
+              </nav>
+            </Motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </Motion.header>
   )
