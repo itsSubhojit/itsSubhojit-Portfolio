@@ -14,12 +14,7 @@ function Footer() {
       <div className="min-h-[88px] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Copyright */}
         <span className="font-mono text-[10px] md:text-[11px] text-[var(--text-muted)] tracking-wider uppercase">
-          © {currentYear} Subhojit Chakraborty
-        </span>
-
-        {/* Location Stamp */}
-        <span className="font-mono text-[10px] md:text-[11px] text-[var(--text-muted)] tracking-wider uppercase">
-          Kolkata, India
+          © {currentYear} Csubhojit | All Rights Reserved
         </span>
 
         {/* Availability Status Dot */}

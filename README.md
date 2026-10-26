@@ -1,38 +1,43 @@
-# 🌐 Portfolio Website
+# 🌐 Subhojit Chakraborty — Portfolio
 
-A modern, responsive portfolio website built with **React** and **Tailwind CSS**, showcasing projects, skills, and contact information with a clean UI and dark mode support.
+An architectural, editorial portfolio website engineered with **React (Vite)**, **Tailwind CSS v4**, and **Framer Motion**. Designed around an editorial aesthetic featuring modern typography, warm bone and deep charcoal palettes, interactive schematic project cards, and smooth micro-interactions.
 
 ---
 
 ## 🚀 Live Demo
 
-🔗 [csubhojit.netlify.app](https://csubhojit.netlify.app/)
+🔗 **[csubhojit.netlify.app](https://csubhojit.netlify.app/)**
 
 ---
 
-## ✨ Features
+## ✨ Features & Design Highlights
 
-* ⚡ Fully responsive design (mobile, tablet, desktop)
-* 🌙 Dark mode with persistent theme (localStorage)
-* 🧭 Navigation using React Router
-* 🎨 Modern UI with glassmorphism effects
-* 📬 Contact Form powered by **Netlify** with real-time validation & AJAX submission
-* 🛸 Floating Glassmorphism Footer with blinking status indicator
-* 📁 Dynamic project rendering from data file
-* 🔗 Secure external links (`rel="noopener noreferrer"`)
+* 🏛️ **Architectural Editorial Design**: Built with high-contrast typography pairing *Instrument Serif*, *DM Sans*, and *JetBrains Mono*.
+* 🌓 **Adaptive Bone / Charcoal Theme**: Seamless light/dark mode with local storage persistence (`#f4f1ea` Bone & `#0e0e0f` Charcoal).
+* 🧭 **Floating Capsule Navigation**: Desktop glass capsule navbar with active route indicator and theme toggle.
+* 🍔 **"Fries Right" Mobile Navigation**: Custom animated hamburger menu with morphing X animation and solid opaque backdrop.
+* 🖼️ **Portrait Archive Frame**: 3:4 portrait frame with crosshairs overlay and floating opportunity card.
+* 📂 **Interactive Project Rows**: Numbered architectural accordion (`01`–`04`) with schematic frames, dynamic project data mapping, and live/code links.
+* 📬 **Architectural Contact Form**: Underline inputs, real-time monospace validation badges, strict 20-character message cap, and production Netlify Forms backend integration.
+* 🛸 **Architectural Footer**: Monospace location stamp, copyright, and pulsing green status indicator (`#83AA78`).
+* ♿ **Accessibility & Motion-Safe**: Full `prefers-reduced-motion` compliance across all Framer Motion animations.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React.js (Vite)
-* **Styling:** Tailwind CSS (v4)
+* **Framework:** React.js (Vite)
+* **Styling:** Tailwind CSS v4 + Vanilla CSS Design Tokens
+* **Animations:** Framer Motion
+* **Typography:** Instrument Serif, DM Sans, JetBrains Mono
 * **Routing:** React Router DOM
-* **Forms & Deployment:** Netlify (Netlify Forms)
+* **Forms & Hosting:** Netlify (Netlify Forms & Hosting)
 * **Version Control:** Git & GitHub
+
 ---
 
 ## 📂 Project Structure
+
 ```
 /
 ├── public/
@@ -47,21 +52,26 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 │   ├── Netlify-Dark.svg
 │   ├── MySQL-Dark.svg
 │   ├── my-pic.jpg
-│   ├── icons8-hamburger-menu.svg
-│   └── (other images)
+│   └── (other assets)
 │
 ├── src/
 │   ├── components/
 │   │   ├── Navbar/
-│   │   ├── Header/
-│   │   ├── Hero/
-│   │   ├── Footer/
-│   │   ├── Layout/
-│   │   ├── Home/
+│   │   │   └── Navbar.jsx
+│   │   ├── Hero Section/
+│   │   │   └── Hero.jsx
 │   │   ├── About/
+│   │   │   └── About.jsx
 │   │   ├── Skills/
+│   │   │   └── Skills.jsx
 │   │   ├── Projects/
+│   │   │   └── Projects.jsx
 │   │   ├── Contact/
+│   │   │   └── Contact.jsx
+│   │   ├── Footer/
+│   │   │   └── Footer.jsx
+│   │   ├── Layout/
+│   │   │   └── Layout.jsx
 │   │   └── ProjectsData/
 │   │       └── ProjectsData.js
 │   │
@@ -71,27 +81,32 @@ A modern, responsive portfolio website built with **React** and **Tailwind CSS**
 │
 ├── package.json
 └── README.md
-
 ```
 
 ---
 
 ## ⚙️ Installation & Setup
 
-```bash
-git clone https://github.com/itsSubhojit/itsSubhojit-Portfolio.git
-cd itsSubhojit-Portfolio
-npm install
-npm run dev
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/itsSubhojit/itsSubhojit-Portfolio.git
+   cd itsSubhojit-Portfolio
+   ```
 
-> **Note:** Tailwind CSS v4 is already configured in this project.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
----
+3. **Start the local development server:**
+   ```bash
+   npm run dev
+   ```
 
-## 📌 Future Improvements
-
-* 🔄 Add smooth scroll animations and framer-motion transitions
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
 ---
 

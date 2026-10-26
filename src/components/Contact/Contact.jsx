@@ -214,7 +214,7 @@ function Contact() {
                 GitHub ↗
               </a>
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/csubhojit7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-[15px] sm:text-[16px] text-[var(--text-primary)] hover:text-[var(--accent)] underline underline-offset-4 transition-colors"
