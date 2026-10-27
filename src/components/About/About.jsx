@@ -4,7 +4,7 @@ import { motion as Motion, useReducedMotion } from 'framer-motion'
 const quickFacts = [
   { label: 'Based in', value: 'Kolkata, India' },
   { label: 'Education', value: 'BCA student' },
-  { label: 'Focus', value: 'Backend development' },
+  { label: 'Focus', value: 'Software Development' },
   { label: 'Looking for', value: 'Fresher SDE roles' },
 ]
 
@@ -75,7 +75,7 @@ function About() {
             variants={fadeUpVariant}
             className="font-sans text-[16px] sm:text-[18px] leading-[1.65] text-[var(--text-primary)] font-normal max-w-xl"
           >
-            I’m Subhojit Chakraborty, a BCA student and backend developer based in Kolkata. I’m looking for fresher SDE roles where I can learn, contribute, and grow as a developer.
+            I’m Subhojit Chakraborty, a BCA student in Kolkata,  learning software development through projects. I’m looking for a fresher SDE role where I can learn, contribute, and grow as a developer.
           </Motion.p>
         </Motion.div>
 

@@ -34,7 +34,7 @@ function Footer() {
             aria-hidden="true"
           />
           <span className="font-mono text-[10px] md:text-[11px] text-[var(--text-primary)] font-normal tracking-wide">
-            Available
+            Open to work
           </span>
         </div>
       </div>

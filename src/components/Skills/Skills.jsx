@@ -6,6 +6,7 @@ const skillGroups = [
     title: 'Languages',
     skills: [
       { name: 'JavaScript', icon: '/JavaScript.svg' },
+      { name: 'Java', icon: '/Java-Light.svg' },
     ],
   },
   {
@@ -18,11 +19,19 @@ const skillGroups = [
     ],
   },
   {
-    title: 'Backend and Data',
+    title: 'Backend',
     skills: [
       { name: 'Node.js', icon: '/NodeJS-Dark.svg' },
       { name: 'Express', icon: '/ExpressJS-Dark.svg' },
+    ],
+  },
+  {
+    title: 'Database',
+    skills: [
+      { name: 'MongoDB', icon: '/MongoDB.svg' },
+      { name: 'Supabase', icon: '/Supabase-Light.svg' },
       { name: 'MySQL', icon: '/MySQL-Dark.svg' },
+      { name: 'Firestore', icon: '/Firestore.svg' },
     ],
   },
   {
@@ -32,6 +41,10 @@ const skillGroups = [
       { name: 'GitHub', icon: '/Github-Dark.svg' },
       { name: 'Postman', icon: '/Postman.svg' },
       { name: 'Netlify', icon: '/Netlify-Dark.svg' },
+      { name: 'Neon', icon: '/neon.svg' },
+      { name: 'Vercel', icon: '/Vercel-Light.svg' },
+      { name: 'Render', icon: '/render-light.svg' },
+      { name: 'Firebase', icon: '/firebase.svg' },
     ],
   },
 ]
@@ -101,10 +114,10 @@ function Skills() {
 
           <Motion.div variants={fadeUpVariant} className="flex flex-col gap-2 max-w-sm">
             <span className="font-mono text-[10px] sm:text-[11px] tracking-wider uppercase text-[var(--accent)] font-medium">
-              Example stack — confirm technologies
+              MY TOOLS/TECHNOLOGIES
             </span>
             <p className="font-sans text-[13px] sm:text-[14px] leading-[1.6] text-[var(--text-muted)]">
-              Illustrative only. Replace with the tools and languages actually used.
+              Tools I've used in my projects.
             </p>
           </Motion.div>
         </Motion.div>

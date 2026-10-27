@@ -39,10 +39,10 @@ function Hero() {
         className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[var(--border-color)] pb-3"
       >
         <span className="font-mono text-[11px] tracking-wider uppercase text-[var(--accent)] font-medium">
-          PORTFOLIO / BACKEND DEVELOPMENT
+          PORTFOLIO / SOFTWARE DEVELOPMENT
         </span>
         <span className="font-mono text-[11px] tracking-wider uppercase text-[var(--text-muted)]">
-          Kolkata, India · BCA Student
+           KOLKATA, INDIA 
         </span>
       </Motion.div>
 
@@ -74,7 +74,7 @@ function Hero() {
             variants={fadeUpVariant}
             className="font-sans text-[20px] sm:text-[23px] md:text-[26px] text-[var(--text-primary)] font-normal"
           >
-            Backend Developer
+            Aspiring Software Developer
           </Motion.span>
 
           <Motion.p
@@ -177,7 +177,7 @@ function Hero() {
             >
               <div className="w-[6px] h-[6px] rounded-full bg-[var(--accent)] shrink-0" aria-hidden="true" />
               <p className="font-sans text-[12px] sm:text-[13px] leading-tight text-[var(--text-primary)]">
-                Open to fresher SDE roles · Kolkata
+                Open to fresher SDE roles
               </p>
             </Motion.div>
           </div>
@@ -185,10 +185,10 @@ function Hero() {
           {/* Margin annotation */}
           <div className="w-full max-w-[360px] pt-10 sm:pt-12 flex flex-col gap-1 text-left">
             <span className="font-mono text-[10px] tracking-wider uppercase text-[var(--text-muted)]">
-              BUILDING FROM THE BACKEND UP.
+              LEARNING IN PUBLIC.
             </span>
             <span className="font-mono text-[10px] text-[var(--text-muted)] opacity-80">
-              A student’s perspective. A developer’s intent.
+              A student's perspective. A developer's intent..
             </span>
           </div>
         </Motion.div>

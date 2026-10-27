@@ -21,8 +21,8 @@ function Contact() {
     const { name } = e.target
     let { value } = e.target
 
-    if (name === 'message' && value.length > 20) {
-      value = value.slice(0, 20)
+    if (name === 'message' && value.length > 500) {
+      value = value.slice(0, 500)
     }
 
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -91,8 +91,8 @@ function Contact() {
       newErrors.message = 'Links not allowed'
     } else if (/(.)\1{4,}/.test(formData.message)) {
       newErrors.message = 'No repeated characters'
-    } else if (formData.message.length > 20) {
-      newErrors.message = 'Max 20 chars'
+    } else if (formData.message.length > 500) {
+      newErrors.message = 'Max 500 chars'
     }
 
     if (Date.now() - lastSubmit < 30000) {
@@ -347,11 +347,11 @@ function Contact() {
                   </span>
                 ) : formData.message.trim().length > 0 ? (
                   <span className="text-[var(--status-dot)] font-medium tracking-tight">
-                    {formData.message.length}/20 chars
+                    {formData.message.length}/500 chars
                   </span>
                 ) : (
                   <span className="text-[var(--text-muted)] text-[10px]">
-                    Max 20 chars
+                    Max 500 chars
                   </span>
                 )}
               </div>
@@ -360,7 +360,7 @@ function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                maxLength={20}
+                maxLength={500}
                 rows={2}
                 placeholder="Tell me about the role or project..."
                 className="w-full bg-transparent border-b border-[var(--border-color)] focus:border-[var(--accent)] py-2 text-[18px] sm:text-[20px] font-sans text-[var(--text-primary)] placeholder-[var(--text-muted)]/40 focus:outline-none resize-none transition-colors duration-200"

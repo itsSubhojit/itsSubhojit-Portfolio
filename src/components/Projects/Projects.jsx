@@ -247,8 +247,8 @@ function Projects() {
         viewport={{ once: true, margin: '-40px' }}
         className="w-full flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-[var(--text-muted)]"
       >
-        <span>DYNAMIC DATA VIA PROJECTSDATA.JS</span>
-        <span>HOVER OR CLICK TO EXPAND DETAILS</span>
+        <span>4 PROJECTS, MORE COMING</span>
+        <span>CLICK TO EXPAND DETAILS</span>
       </Motion.div>
     </section>
   )
