@@ -16,8 +16,8 @@ An architectural, editorial portfolio website engineered with **React (Vite)**, 
 * 🌓 **Adaptive Bone / Charcoal Theme**: Seamless light/dark mode with local storage persistence (`#f4f1ea` Bone & `#0e0e0f` Charcoal).
 * 🧭 **Floating Capsule Navigation**: Desktop glass capsule navbar with active route indicator and theme toggle.
 * 🍔 **"Fries Right" Mobile Navigation**: Custom animated hamburger menu with morphing X animation and solid opaque backdrop.
-* 🖼️ **Portrait Archive Frame**: 3:4 portrait frame with crosshairs overlay and floating opportunity card.
-* 📂 **Interactive Project Rows**: Numbered architectural accordion (`01`–`04`) with schematic frames, dynamic project data mapping, and live/code links.
+* 🖼️ **Portrait Archive Frame**: 3:4 portrait frame with permanent high-contrast monochrome aesthetic and floating opportunity card.
+* 📂 **Interactive Project Rows**: Numbered architectural accordion (`01`–`04`) with responsive schematic frames, dynamic tech stack badges (e.g., React Native, Expo, Gemini AI, Cashfree, Firebase, Supabase), and live/code links.
 * 📬 **Architectural Contact Form**: Underline inputs, real-time monospace validation badges, strict 20-character message cap, and production Netlify Forms backend integration.
 * 🛸 **Architectural Footer**: Monospace location stamp, copyright, and pulsing green status indicator (`#83AA78`).
 * ♿ **Accessibility & Motion-Safe**: Full `prefers-reduced-motion` compliance across all Framer Motion animations.
@@ -41,18 +41,17 @@ An architectural, editorial portfolio website engineered with **React (Vite)**, 
 ```
 /
 ├── public/
-│   ├── HTML.svg
-│   ├── CSS.svg
-│   ├── JavaScript.svg
-│   ├── React-Dark.svg
-│   ├── TailwindCSS-Dark.svg
-│   ├── Git.svg
-│   ├── Github-Dark.svg
-│   ├── Postman.svg
-│   ├── Netlify-Dark.svg
-│   ├── MySQL-Dark.svg
-│   ├── my-pic.jpg
-│   └── (other assets)
+│   ├── assets/
+│   │   ├── my-pic.png
+│   │   ├── Remetra.png
+│   │   ├── Sahakari Final Thumbnail.jpg
+│   │   ├── YT-Clone_ScreenShot.png
+│   │   └── Subhojit_Chakraborty_CV.pdf
+│   └── icons/
+│       ├── React-Dark.svg
+│       ├── TailwindCSS-Dark.svg
+│       ├── NodeJS-Dark.svg
+│       └── (other technology SVGs)
 │
 ├── src/
 │   ├── components/

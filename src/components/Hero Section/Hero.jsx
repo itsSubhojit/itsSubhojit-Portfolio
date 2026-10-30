@@ -145,20 +145,8 @@ function Hero() {
                 <img
                   src="/assets/my-pic.png"
                   alt="Subhojit Chakraborty"
-                  className="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover grayscale contrast-110"
                 />
-
-                {/* Technical crosshairs overlay matching Figma #4:2686 */}
-                <div
-                  className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-30"
-                  aria-hidden="true"
-                >
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="18" y1="0" x2="18" y2="36" stroke="currentColor" strokeWidth="1" />
-                    <line x1="0" y1="18" x2="36" y2="18" stroke="currentColor" strokeWidth="1" />
-                    <circle cx="18" cy="18" r="8" stroke="currentColor" strokeWidth="1" fill="none" />
-                  </svg>
-                </div>
               </div>
 
               {/* Frame metadata bottom */}

@@ -166,7 +166,7 @@ function Projects() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden pb-10 pt-2"
                   >
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pl-0 md:pl-28 lg:pl-32">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch pl-0 md:pl-28 lg:pl-32">
                       {/* Left: Schematic Preview Frame with project.img */}
                       <div className="lg:col-span-7 bg-[var(--note-bg)] border border-[var(--border-color)] rounded-sm overflow-hidden p-3 sm:p-4 shadow-sm flex flex-col justify-between">
                         {/* Preview Top Header */}
@@ -176,12 +176,23 @@ function Projects() {
                         </div>
 
                         {/* Image Frame */}
-                        <div className="relative aspect-[16/9] w-full my-3 overflow-hidden rounded-sm bg-black/5 dark:bg-white/5 border border-[var(--border-color)]">
-                          <img
-                            src={project.img}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                          />
+                        <div className="relative w-full my-3 overflow-hidden rounded-sm border border-[var(--border-color)] bg-black/5 dark:bg-white/5">
+                          {project.img && project.img !== '/assets/' ? (
+                            <img
+                              src={project.img}
+                              alt={project.title}
+                              className="w-full h-auto max-h-[380px] object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
+                            />
+                          ) : (
+                            <div className="flex flex-col items-center justify-center gap-2 py-16 px-6 text-center">
+                              <span className="font-mono text-[11px] tracking-wider uppercase text-[var(--accent)] font-medium">
+                                REST API Project
+                              </span>
+                              <span className="font-mono text-[10px] text-[var(--text-muted)]">
+                                Backend service · No graphical UI
+                              </span>
+                            </div>
+                          )}
                         </div>
 
                         {/* Preview Bottom Footer */}
@@ -191,8 +202,8 @@ function Projects() {
                         </div>
                       </div>
 
-                      {/* Right: Description & Action Buttons */}
-                      <div className="lg:col-span-5 flex flex-col justify-between gap-6 py-2">
+                      {/* Right: Description, Tech Stack & Action Buttons */}
+                      <div className="lg:col-span-5 flex flex-col justify-between gap-6 py-1">
                         <div className="flex flex-col gap-4">
                           <span className="font-mono text-[11px] tracking-wider uppercase text-[var(--accent)] font-medium">
                             Project Summary
@@ -201,6 +212,25 @@ function Projects() {
                             {project.desc}
                           </p>
                         </div>
+
+                        {/* Tech Stack Badges */}
+                        {project.tech && project.tech.length > 0 && (
+                          <div className="flex flex-col gap-2.5">
+                            <span className="font-mono text-[10px] tracking-wider uppercase text-[var(--text-muted)] font-medium">
+                              Technologies
+                            </span>
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                              {project.tech.map((item) => (
+                                <span
+                                  key={item}
+                                  className="px-2.5 py-1 rounded-full border border-[var(--border-color)] bg-[var(--note-bg)] font-mono text-[11px] sm:text-[12px] text-[var(--text-primary)] hover:border-[var(--accent)] transition-colors"
+                                >
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap items-center gap-3 pt-4">
