@@ -77,6 +77,20 @@ function About() {
           >
             I’m Subhojit Chakraborty, a BCA student in Kolkata,  learning software development through projects. I’m looking for a fresher SDE role where I can learn, contribute, and grow as a developer.
           </Motion.p>
+
+          <Motion.div variants={fadeUpVariant} className="pt-2">
+            <Motion.a
+              href="/assets/Subhojit_Chakraborty_CV.pdf"
+              download="Subhojit_Chakraborty_CV.pdf"
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              className="inline-flex h-[48px] px-6 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] font-sans text-[13px] font-medium items-center gap-3 cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+            >
+              <span>Download CV</span>
+              <span className="font-mono text-xs">↓</span>
+            </Motion.a>
+          </Motion.div>
         </Motion.div>
 
         {/* Right Column: The Short Version (Quick Facts) */}

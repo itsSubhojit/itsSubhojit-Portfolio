@@ -143,7 +143,7 @@ function Hero() {
               {/* Crop guide with User's Photo */}
               <div className="relative aspect-[3/4] w-full my-3 overflow-hidden bg-black/5 dark:bg-white/5 border border-[var(--border-color)]">
                 <img
-                  src="/my-pic.png"
+                  src="/assets/my-pic.png"
                   alt="Subhojit Chakraborty"
                   className="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-500"
                 />
